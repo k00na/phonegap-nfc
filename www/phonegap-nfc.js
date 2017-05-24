@@ -486,6 +486,10 @@ var nfc = {
     showSettings: function (win, fail) {
         cordova.exec(win, fail, "NfcPlugin", "showSettings", []);
     }
+    
+    test: function (win, fail) {
+        cordova.exec(win, fail, "NfcPlugin", "test", []);
+    }
 
 };
 
