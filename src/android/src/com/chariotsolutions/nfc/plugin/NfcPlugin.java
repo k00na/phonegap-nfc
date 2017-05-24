@@ -49,6 +49,7 @@ public class NfcPlugin extends CordovaPlugin implements NfcAdapter.OnNdefPushCom
     private static final String ENABLED = "enabled";
     private static final String INIT = "init";
     private static final String SHOW_SETTINGS = "showSettings";
+    private static final String TEST = "test";
 
     private static final String NDEF = "ndef";
     private static final String NDEF_MIME = "ndef-mime";
@@ -81,6 +82,11 @@ public class NfcPlugin extends CordovaPlugin implements NfcAdapter.OnNdefPushCom
         // might want to skip this if NO_NFC
         if (action.equalsIgnoreCase(SHOW_SETTINGS)) {
             showSettings(callbackContext);
+            return true;
+        }
+        
+        if (action.equalsIgnoreCase(TEST)) {
+            test(callbackContext);
             return true;
         }
 
@@ -381,6 +387,11 @@ public class NfcPlugin extends CordovaPlugin implements NfcAdapter.OnNdefPushCom
             getActivity().startActivity(intent);
         }
         callbackContext.success();
+    }
+    
+    private void test(CallbackContext callbackContext) {
+        
+        Log.i("nfcTest", "HELLO WORLD");
     }
 
     private void createPendingIntent() {
